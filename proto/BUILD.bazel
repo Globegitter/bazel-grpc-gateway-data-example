@@ -1,0 +1,17 @@
+load("@org_pubref_rules_protobuf//grpc_gateway:rules.bzl", "grpc_gateway_proto_library", "grpc_gateway_swagger_compile")
+
+
+grpc_gateway_proto_library(
+  name = "service_grpc_gateway_go_proto",
+  protos = ["service.proto"],
+  visibility = ["//visibility:public"],
+  importpath = "github.com/globegitter/bazel-grc-gateway-data-example/proto/service",
+)
+
+grpc_gateway_swagger_compile(
+    name = "service_swagger",
+    protos = [
+        "service.proto",
+    ],
+    visibility = ["//visibility:public"],
+)

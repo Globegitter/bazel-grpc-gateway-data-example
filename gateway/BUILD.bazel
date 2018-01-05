@@ -1,0 +1,26 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+load("@org_pubref_rules_protobuf//grpc_gateway:rules.bzl", "GRPC_GATEWAY_DEPS")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["main.go"],
+    importpath = "github.com/globegitter/bazel-grc-gateway-data-example/gateway",
+    deps = [
+        "//proto:billing_grpc_gateway_go_proto",
+    ] + GRPC_GATEWAY_DEPS,
+    data = [
+        "//proto:billing_swagger",
+    ],
+)
+
+go_binary(
+    name = "gateway",
+    embed = [":go_default_library"],
+    importpath = "github.com/globegitter/bazel-grc-gateway-data-example/gateway",
+    data = [
+        "//proto:billing_swagger",
+    ],
+)
+
+# If I manually copy the file over and export it, then it works fine, e.g.
+# exports_files(["public.swagger.json"])

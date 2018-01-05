@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package service;
+
+import "google/api/annotations.proto";
+
+message GetRequest {
+  int32 user_id = 1;
+}
+
+message Mandate {
+  int32 data_id = 1;
+}
+
+service MyService {
+  rpc GetNewData(GetRequest) returns (Mandate) {
+    option (google.api.http) = {
+      post: "/v1/data"
+      body: "*"
+    };
+  }
+}
