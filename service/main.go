@@ -9,6 +9,8 @@ import (
 	"google.golang.org/grpc"
 )
 
+type server struct{}
+
 func (s *server) GetNewData(ctx context.Context, req *pb.GetRequest) (*pb.Mandate, error) {
 	log.Println("Got request")
 	return &pb.Mandate{DataId: 1}, nil

@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"flag"
-	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
@@ -31,7 +30,7 @@ func run() error {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/swagger/", serveSwagger)
 	opts := []grpc.DialOption{grpc.WithInsecure()}
-	err := gw.RegisterBillingHandlerFromEndpoint(ctx, gwMux, *echoEndpoint, opts)
+	err := gw.RegisterMyServiceHandlerFromEndpoint(ctx, gwMux, *echoEndpoint, opts)
 	if err != nil {
 		return err
 	}

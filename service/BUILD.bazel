@@ -7,9 +7,9 @@ package(
 go_library(
     name = "go_default_library",
     srcs = ["main.go"],
-    importpath = "github.com/hufsybank/core2/billing",
+    importpath = "github.com/globegitter/bazel-grpc-gateway-data-example/service",
     deps = [
-        "//proto:billing_grpc_gateway_go_proto",
+        "//proto:service_grpc_gateway_go_proto",
         "@com_github_golang_protobuf//ptypes/empty:go_default_library",
         "@org_golang_google_grpc//:go_default_library",
     ],

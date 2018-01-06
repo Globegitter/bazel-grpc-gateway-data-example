@@ -6,10 +6,10 @@ go_library(
     srcs = ["main.go"],
     importpath = "github.com/globegitter/bazel-grc-gateway-data-example/gateway",
     deps = [
-        "//proto:billing_grpc_gateway_go_proto",
+        "//proto:service_grpc_gateway_go_proto",
     ] + GRPC_GATEWAY_DEPS,
     data = [
-        "//proto:billing_swagger",
+        "//proto:service_swagger",
     ],
 )
 
@@ -18,7 +18,7 @@ go_binary(
     embed = [":go_default_library"],
     importpath = "github.com/globegitter/bazel-grc-gateway-data-example/gateway",
     data = [
-        "//proto:billing_swagger",
+        "//proto:service_swagger",
     ],
 )
 
