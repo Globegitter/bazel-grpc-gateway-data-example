@@ -23,4 +23,4 @@ go_binary(
 )
 
 # If I manually copy the file over and export it, then it works fine, e.g.
-# exports_files(["public.swagger.json"])
+# exports_files(["service.swagger.json"])
