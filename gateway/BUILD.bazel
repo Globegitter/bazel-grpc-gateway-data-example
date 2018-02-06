@@ -16,7 +16,6 @@ go_library(
 go_binary(
     name = "gateway",
     embed = [":go_default_library"],
-    importpath = "github.com/globegitter/bazel-grc-gateway-data-example/gateway",
     data = [
         "//proto:service_swagger",
     ],
